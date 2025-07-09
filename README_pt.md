@@ -1,24 +1,24 @@
-# React-Router Tutorial
+# Tutorial de React-Router
 
-Welcome to **React-Router Tutorial**!
+Bem-vindo ao **React-Router Tutorial**!
 
-This is the README file in English. You can also check versions in other languages:
+Este é o arquivo README em português. Você também pode conferir as versões em outros idiomas:
 
+- 🇬🇧 [Read in English](README.md)
 - 🇪🇸 [Leer en español](README_es.md)
-- 🇺🇦 [Read in Ukrainian](README_uk.md)
-- 🇵🇹 [Read in Portuguese](README_pt.md)
+- 🇺🇦 [Ler em ucraniano](README_uk.md)
 
-## Description
+## Descrição
 
-A short guided project to introduce you to React Router.
+Um projeto guiado e curto para introduzir o React Router.
 
-## Features
+## Funcionalidades
 
-- Project with pre-made pages and Navbar
-- We will create routes to connect different pages in the project
-- We will build nested routes, normal routes, and secret routes
+- Projeto com páginas e Navbar já criados
+- Vamos criar rotas para conectar as diferentes páginas do projeto
+- Vamos configurar rotas aninhadas, rotas normais e rotas secretas
 
-## Initial setup
+## Instalação inicial
 
 ```bash
 git clone https://github.com/jemb4/react-rooter-tutorial
@@ -26,24 +26,24 @@ cd react-rooter-tutorial
 npm install
 ```
 
-## STEPS
+## PASSOS
 
-### 1: Install React Router
+### 1: Instalar o react-router
 
 ```bash
 npm install react-router-dom
 ```
 
-### 2: Create routes/Routes.jsx
+### 2: Criar o arquivo routes/Routes.jsx
 
-- Inside `src`, create a routes folder and inside it, a Routes.jsx file.
+- Dentro da pasta src, crie a pasta routes e, dentro dela, o arquivo Routes.jsx.
 
-- In this file, add all the routes inside the `<Routes>` tag.
+- Nesse arquivo, vamos adicionar todas as rotas dentro da tag < Routes>.
 
-- The main props we’ll use are `path="/page"` for the URL and `element={<View />}` for the component to render.
+- As props principais que usamos são path="/pagina" para a URL e element={< View />} para o componente a ser renderizado.
 
 <details>
-  <summary> See code for Router.jsx</summary>
+  <summary> Ver código do Router.jsx</summary>
 
 ```jsx
 import { Routes, Route } from "react-router-dom";
@@ -71,18 +71,18 @@ export default function AppRoutes({ allowSecret }) {
 
 </details>
 
-### 3: Modify App.jsx
+### 3: Modificar o App.jsx
 
-We will edit App.jsx to use the created routes. To do this, we will build it from scratch by following these steps:
+Vamos editar o App.jsx para usar as rotas criadas. Para isso, criaremos do zero seguindo os seguintes passos:
 
-- Create a allowSecret state (boolean) using useState.
+- Criar o estado allowSecret (booleano) usando useState.
 
-- Wrap the main content inside `<BrowserRouter>` to enable React Router.
+- Envolver o conteúdo principal na tag < BrowserRouter> para habilitar o React Router.
 
-- Inside the wrapper, include the Navbar, a button to toggle allowSecret, and AppRoutes with the allowSecret prop.
+- Dentro do wrapper, adicionar o Navbar, um botão para alternar o estado allowSecret e o componente AppRoutes passando a prop allowSecret.
 
 <details>
-  <summary> See code for App.jx</summary>
+  <summary> Ver código de App.jx</summary>
 
 ```jsx
 import { BrowserRouter } from "react-router-dom";
@@ -110,13 +110,14 @@ export default function App() {
 
 </details>
 
-### 4: Edit the Navbar
+### 4: Editar o Navbar
 
-In Navbar, remove all `<a>` tags and replace them with `<Link>`.
+No Navbar, vamos remover todas as tags < a > e substituí-las por < Link>.
 
-- They will have the `to="/view"` prop with the target URL.
+- Elas terão a prop to="/rota" com o URL desejado.
+
 <details>
-  <summary> See code for Navbar.jsx</summary>
+  <summary> Ver código de Navbar.jsx</summary>
 
 ```jsx
 import { Link } from "react-router-dom";
@@ -140,14 +141,14 @@ export default function Navbar() {
 
 </details>
 
-### 5: Edit Users.jsx to enable nested routes
+### 5: Editar User.jsx para suportar rotas aninhadas
 
-Just like in the Navbar, now we will replace buttons or anchors with < Link>. This time, the to prop won’t include / since these are nested routes.
+Assim como no Navbar, agora vamos substituir os botões ou `<a>` por `<Link>`. Desta vez, a prop to não terá /, pois são rotas aninhadas.
 
-- At the end of the component, we use the `<Outlet />` tag. This allows us to render nested child content inside the parent component.
+- No final do componente, usamos a tag `<Outlet />`, que permite renderizar o conteúdo filho dentro do componente pai.
 
 <details>
-  <summary> See code for Users.jsx</summary>
+  <summary> Ver código de Users.jsx</summary>
 
 ```jsx
 import { Link, Outlet } from "react-router-dom";
